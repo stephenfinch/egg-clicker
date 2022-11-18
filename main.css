@@ -31,14 +31,18 @@ body {
   z-index: -1;
 }
 
-.egg-icon {
-  width: 100px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
 .icon {
   width: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.egg-icon {
+  width: 100px;
 }
 
 .hero-text {
