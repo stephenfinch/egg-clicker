@@ -1,0 +1,82 @@
+body {
+  background: rgb(112, 109, 255);
+  background: linear-gradient(360deg, rgba(112, 109, 255, 1) 0%, rgba(112, 109, 255, 1) 20%, rgba(255, 149, 51, 1) 100%);
+}
+
+#dialog {
+  width: 300px;
+}
+
+.right {
+  float: right
+}
+
+.material-symbols-outlined {
+  font-size: 20rem;
+}
+
+.hero {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.hero-icon {
+  width: 100%;
+  position: absolute;
+  opacity: 0.25;
+  z-index: -1;
+}
+
+.egg-icon {
+  width: 100px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.icon {
+  width: 30px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.hero-text {
+  font-size: 1rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6rem;
+}
+
+.side-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button {
+  background: #FF9533;
+  cursor: pointer;
+  box-shadow: 0px 20px 0px #CE7728;
+  padding: 1rem;
+  transition: all 50ms ease-in-out;
+
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-left: none;
+  border-radius: 0px 30px 30px 0px;
+}
+
+.egg-button {
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  border-right: none;
+  border-radius: 30px 0px 0px 30px;
+  padding: 2.5rem 3.5rem;
+}
+
+.button:active {
+  box-shadow: 0px 10px 0px 5px #CE7728;
+  transform: translate(0, 10px);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+  <title>AmassEggs</title>
+  <meta property="og:title" content="AmassEggs">
+  <meta name="twitter:title" content="AmassEggs">
+
+  <meta name="description" content="Amass the most eggs you can">
+  <meta property="og:description" content="Amass the most eggs you can">
+  <meta name="twitter:description" content="Amass the most eggs you can">
+
+  <meta property="og:image" content="https://user-images.githubusercontent.com/57785785/201551060-b1ba4f57-5b81-464c-82cd-78cabeea88b7.png">
+  <meta name="twitter:image" content="https://user-images.githubusercontent.com/57785785/201551060-b1ba4f57-5b81-464c-82cd-78cabeea88b7.png">
+</head>
+
+<body>
+  <div class="hero">
+    <h1 id="score">0</h1>
+    <span class="hero-text">Eggs Amassed</span>
+    <img src="assets/egg_alt_FILL0_wght400_GRAD0_opsz48.svg" class="hero-icon" alt="broken egg">
+  </div>
+  <div class="buttons-container">
+    <div class="side-buttons-container">
+      <button class="button" onclick="openModal()">
+        <img src="assets/settings_FILL0_wght400_GRAD0_opsz48.svg" class="icon" alt="egg">
+      </button>
+      <button class="button">
+        <img src="assets/share_FILL0_wght400_GRAD0_opsz48.svg" class="icon" alt="egg">
+      </button>
+    </div>
+    <button id="egg-button" class="button egg-button">
+      <img src="assets/egg_FILL0_wght400_GRAD0_opsz48.svg" class="egg-icon" alt="egg">
+    </button>
+  </div>
+
+  <dialog id="dialog"><button onclick="resetScore()">Reset score</button><br /><br /><br />
+    <button onclick="closeModal()" class="right">Close</button>
+  </dialog>
+  <script src="main.js"></script>
+</body>
+
+</html>
