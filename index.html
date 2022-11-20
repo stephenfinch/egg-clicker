@@ -29,6 +29,16 @@
     <span class="hero-text">Eggs Amassed</span>
     <img src="assets/egg_alt_FILL0_wght400_GRAD0_opsz48.svg" class="hero-icon" alt="broken egg">
   </div>
+  <div id="shop-bar" class="shop-bar">
+    <div class="shop-item">
+      <h4>Chickens</h4>
+      <span id="chicken-total" class="faded-text">0 (+0 eps)</span>
+      <button id="chicken-buy-button" class="buy-button" onclick="buyChicken()">Buy (10 eggs)</button>
+    </div>
+    <div class="shop-item"></div>
+    <div class="shop-item"></div>
+    <div class="shop-item"></div>
+  </div>
   <div class="buttons-container">
     <div class="side-buttons-container">
       <button class="button" onclick="openModal()">
@@ -40,13 +50,16 @@
     </div>
     <button id="egg-button" class="button egg-button">
       <img src="assets/egg_FILL0_wght400_GRAD0_opsz48.svg" class="icon egg-icon" alt="egg">
+      <span id="egg-button-text" class="faded-text">+1 egg per click</span>
     </button>
   </div>
 
   <dialog id="dialog"><button onclick="resetScore()">Reset score</button><br /><br /><br />
     <button onclick="closeModal()" class="right">Close</button>
   </dialog>
+  <script src="localStorageAPI.js"></script>
   <script src="main.js"></script>
+  <script src="shop.js"></script>
 </body>
 
 </html>

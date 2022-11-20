@@ -7,7 +7,7 @@ eggButton.addEventListener('mousedown', handleClick)
 function connect() {
   showScore()
   window.setTimeout(() => {
-    playSound(mainMusic, 0.3, true)
+    playSound(mainMusic, 0.2, true)
   }, 3000)
 }
 
@@ -20,7 +20,7 @@ function handleClick(_event) {
   ]
   const randomSound = popSounds[Math.floor(Math.random() * popSounds.length)]
 
-  playSound(randomSound)
+  playSound(randomSound, 0.5)
   localStorage.setItem('score', Number(localStorage.getItem('score')) + 1)
   showScore()
 }
