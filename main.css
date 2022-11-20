@@ -97,6 +97,7 @@ body {
   border-top: 10px solid rgba(255, 255, 255, 0.5);
   border-bottom: 10px solid rgba(255, 255, 255, 0.5);
   display: flex;
+  justify-content: space-evenly;
 }
 
 .shop-item {
