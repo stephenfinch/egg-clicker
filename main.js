@@ -7,7 +7,7 @@ eggButton.addEventListener('mousedown', handleClick)
 function connect() {
   showScore()
   window.setTimeout(() => {
-    playSound(mainMusic, true)
+    playSound(mainMusic, 0.3, true)
   }, 3000)
 }
 
@@ -44,9 +44,9 @@ function closeModal() {
   dailog.close()
 }
 
-function playSound(sound, loop = false) {
+function playSound(sound, volume = 0.2, loop = false) {
   const audio = new Audio(sound)
-  audio.volume = 0.2
+  audio.volume = volume
   audio.loop = loop
   audio.play()
 }

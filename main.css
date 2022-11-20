@@ -67,6 +67,7 @@ body {
   box-shadow: 0px 20px 0px #CE7728;
   padding: 1rem;
   transition: all 250ms ease-out;
+  touch-action: manipulation;
 
   border: 5px solid rgba(255, 255, 255, 0.5);
   border-left: none;
