@@ -1,13 +1,14 @@
 const eggButton = document.getElementById('egg-button')
 const scoreDisplay = document.getElementById('score')
-const mainMusic = 'https://cdn.freesound.org/previews/659/659450_5674468-lq.mp3'
+// const mainMusic = 'https://cdn.freesound.org/previews/659/659450_5674468-lq.mp3'
+const mainMusic = 'https://ia801602.us.archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4?cnt=0'
 
 eggButton.addEventListener('mousedown', handleClick)
 
 function connect() {
   showScore()
   window.setTimeout(() => {
-    playSound(mainMusic, 0.2, true)
+    playSound(mainMusic, 1, true)
   }, 3000)
 }
 
