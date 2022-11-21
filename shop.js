@@ -34,7 +34,7 @@ function buyBarn() {
   if (Number(localStorage.getItem('score')) >= getBarnData('price')) {
     setBarnData('total', getBarnData('total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getBarnData('price'))
-    setBarnData('price', Math.round(getBarnData('price') * 1.33))
+    setBarnData('price', Math.round(getBarnData('total') * getBarnData('total') * 0.5 + 1000))
     const coinSounds = [
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
@@ -60,11 +60,44 @@ function updateBarnButton() {
   barnBuyButtonDisplay.textContent = `Buy (${getBarnData('price')})`
 }
 
+// Farms
+function buyFarm() {
+  if (Number(localStorage.getItem('score')) >= getFarmData('price')) {
+    setFarmData('total', getFarmData('total') + 1)
+    localStorage.setItem('score', Number(localStorage.getItem('score')) - getFarmData('price'))
+    setFarmData('price', Math.round(getFarmData('total') * getFarmData('total') * 0.5 + 25000))
+    const coinSounds = [
+      'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
+      'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
+      'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
+      'https://cdn.freesound.org/previews/213/213982_3635427-lq.mp3',
+    ]
+    const randomSound = coinSounds[Math.floor(Math.random() * coinSounds.length)]
+
+    playSound(randomSound, 0.5)
+    showScore()
+    updateFarmButton()
+  } else {
+    playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
+    console.log('you do not have enough eggs')
+  }
+}
+
+function updateFarmButton() {
+  const farmTotalDisplay = document.getElementById('farm-total')
+  const farmBuyButtonDisplay = document.getElementById('farm-buy-button')
+
+  farmTotalDisplay.textContent = `${getFarmData('total')} (+${getFarmData('bonus') * getFarmData('total')} eps)`
+  farmBuyButtonDisplay.textContent = `Buy (${getFarmData('price')})`
+}
+
 window.setInterval(() => {
   localStorage.setItem('score', Number(localStorage.getItem('score')) + getChickenData('bonus') * getChickenData('total'))
   localStorage.setItem('score', Number(localStorage.getItem('score')) + getBarnData('bonus') * getBarnData('total'))
+  localStorage.setItem('score', Number(localStorage.getItem('score')) + getFarmData('bonus') * getFarmData('total'))
   showScore()
 }, 1000)
 
 updateChickenButton()
 updateBarnButton()
+updateFarmButton()

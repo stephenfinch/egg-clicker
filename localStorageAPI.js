@@ -19,3 +19,14 @@ function getBarnData(key) {
   const barnData = JSON.parse(localStorage.getItem('barns')) || { price: 1000, total: 0, bonus: 25 }
   return barnData[key] ?? barnData
 }
+
+function setFarmData(key, value) {
+  const newFarmData = getFarmData()
+  newFarmData[key] = value
+  localStorage.setItem('farms', JSON.stringify(newFarmData))
+}
+
+function getFarmData(key) {
+  const farmData = JSON.parse(localStorage.getItem('farms')) || { price: 25000, total: 0, bonus: 100 }
+  return farmData[key] ?? farmData
+}
