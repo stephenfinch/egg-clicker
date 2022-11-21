@@ -37,6 +37,7 @@ function buyBarn() {
     setBarnData('total', getBarnData('total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getBarnData('price'))
     setBarnData('price', Math.round(getBarnData('price') + getBarnData('total') * 79))
+    setChickenData('bonus', Math.max(getBarnData('total'), 1))
     const coinSounds = [
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
@@ -47,6 +48,7 @@ function buyBarn() {
 
     playSound(randomSound, 0.5)
     showScore()
+    updateChickenButton()
     updateBarnButton()
   } else {
     playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
@@ -70,6 +72,7 @@ function buyFarm() {
     setFarmData('total', getFarmData('total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getFarmData('price'))
     setFarmData('price', Math.round(getFarmData('price') + getFarmData('total') * 751))
+    setBarnData('bonus', Math.max(getFarmData('total') * 2 + 20, 20))
     const coinSounds = [
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
@@ -81,6 +84,7 @@ function buyFarm() {
     playSound(randomSound, 0.5)
     showScore()
     updateFarmButton()
+    updateBarnButton()
   } else {
     playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
     console.log('you do not have enough eggs')
@@ -105,7 +109,8 @@ window.setInterval(() => {
 }, 1000)
 
 function updateEggsPerSecond() {
-  const eggsPerSecondTotal = getChickenData('bonus') * getChickenData('total') + getBarnData('bonus') * getBarnData('total') + getFarmData('bonus') * getFarmData('total')
+  const eggsPerSecondTotal =
+    getChickenData('bonus') * getChickenData('total') + getBarnData('bonus') * getBarnData('total') + getFarmData('bonus') * getFarmData('total')
   const eggsPerSecondDisplay = document.getElementById('eggs-per-second')
   eggsPerSecondDisplay.textContent = `+${eggsPerSecondTotal} eps`
 }
