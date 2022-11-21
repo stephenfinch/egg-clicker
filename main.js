@@ -34,9 +34,16 @@ function showScore() {
   scoreDisplay.textContent = localStorage.getItem('score')
 }
 
-function resetScore() {
+function resetGame() {
   localStorage.setItem('score', 0)
+  localStorage.removeItem('chickens')
+  localStorage.removeItem('barns')
+  localStorage.removeItem('farms')
   showScore()
+  updateChickenButton()
+  updateBarnButton()
+  updateFarmButton()
+  updateEggsPerSecond()
 }
 
 function playSound(sound, volume = 0.2, loop = false) {
