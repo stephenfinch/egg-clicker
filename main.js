@@ -26,7 +26,9 @@ function handleClick(_event) {
   const randomSound = popSounds[Math.floor(Math.random() * popSounds.length)]
 
   playSound(randomSound, 0.5)
-  localStorage.setItem('score', Number(localStorage.getItem('score')) + 1)
+  const clickPower = Math.max(getChickenData('total') + getBarnData('total') + getFarmData('total'), 1)
+  localStorage.setItem('score', Number(localStorage.getItem('score')) + clickPower)
+  document.getElementById('egg-button-text').textContent = `+${clickPower} epc`
   showScore()
 }
 
