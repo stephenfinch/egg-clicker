@@ -16,7 +16,7 @@ function setBarnData(key, value) {
 }
 
 function getBarnData(key) {
-  const barnData = JSON.parse(localStorage.getItem('barns')) || { price: 1000, total: 0, bonus: 25 }
+  const barnData = JSON.parse(localStorage.getItem('barns')) || { price: 1000, total: 0, bonus: 20 }
   return barnData[key] ?? barnData
 }
 

@@ -19,6 +19,8 @@ function buyChicken() {
     playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
     console.log('you do not have enough eggs')
   }
+
+  updateEggsPerSecond()
 }
 
 function updateChickenButton() {
@@ -50,6 +52,8 @@ function buyBarn() {
     playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
     console.log('you do not have enough eggs')
   }
+
+  updateEggsPerSecond()
 }
 
 function updateBarnButton() {
@@ -81,6 +85,8 @@ function buyFarm() {
     playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
     console.log('you do not have enough eggs')
   }
+
+  updateEggsPerSecond()
 }
 
 function updateFarmButton() {
@@ -98,6 +104,13 @@ window.setInterval(() => {
   showScore()
 }, 1000)
 
+function updateEggsPerSecond() {
+  const eggsPerSecondTotal = getChickenData('bonus') * getChickenData('total') + getBarnData('bonus') * getBarnData('total') + getFarmData('bonus') * getFarmData('total')
+  const eggsPerSecondDisplay = document.getElementById('eggs-per-second')
+  eggsPerSecondDisplay.textContent = `+${eggsPerSecondTotal} eps`
+}
+
 updateChickenButton()
 updateBarnButton()
 updateFarmButton()
+updateEggsPerSecond()
