@@ -3,7 +3,7 @@ function buyChicken() {
   if (Number(localStorage.getItem('score')) >= getChickenData('price')) {
     setChickenData('total', getChickenData('total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getChickenData('price'))
-    setChickenData('price', Math.round(getChickenData('total') * getChickenData('total') * 0.5 + 10))
+    setChickenData('price', Math.round(getChickenData('price') + getChickenData('total') * 5))
     const coinSounds = [
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
@@ -36,7 +36,7 @@ function buyBarn() {
   if (Number(localStorage.getItem('score')) >= getBarnData('price')) {
     setBarnData('total', getBarnData('total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getBarnData('price'))
-    setBarnData('price', Math.round(getBarnData('total') * getBarnData('total') * 0.5 + 1000))
+    setBarnData('price', Math.round(getBarnData('price') + getBarnData('total') * 79))
     const coinSounds = [
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
@@ -69,7 +69,7 @@ function buyFarm() {
   if (Number(localStorage.getItem('score')) >= getFarmData('price')) {
     setFarmData('total', getFarmData('total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getFarmData('price'))
-    setFarmData('price', Math.round(getFarmData('total') * getFarmData('total') * 0.5 + 25000))
+    setFarmData('price', Math.round(getFarmData('price') + getFarmData('total') * 751))
     const coinSounds = [
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
       'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',

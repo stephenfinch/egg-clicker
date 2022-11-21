@@ -27,6 +27,6 @@ function setFarmData(key, value) {
 }
 
 function getFarmData(key) {
-  const farmData = JSON.parse(localStorage.getItem('farms')) || { price: 25000, total: 0, bonus: 100 }
+  const farmData = JSON.parse(localStorage.getItem('farms')) || { price: 15000, total: 0, bonus: 100 }
   return farmData[key] ?? farmData
 }
