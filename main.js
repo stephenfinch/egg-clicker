@@ -1,14 +1,18 @@
 const eggButton = document.getElementById('egg-button')
 const scoreDisplay = document.getElementById('score')
-// const mainMusic = 'https://cdn.freesound.org/previews/659/659450_5674468-lq.mp3'
-const mainMusic = 'https://ia801602.us.archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4?cnt=0'
+const mainMusic = 'https://cdn.freesound.org/previews/659/659450_5674468-lq.mp3'
+// const mainMusic = 'https://ia801602.us.archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4?cnt=0'
 
 eggButton.addEventListener('mousedown', handleClick)
+let music
 
 function connect() {
   showScore()
   window.setTimeout(() => {
-    playSound(mainMusic, 1, true)
+    music = playSound(mainMusic, 0.2, true)
+    if (localStorage.getItem('music') === 'false') {
+      music.pause()
+    }
   }, 3000)
 }
 
@@ -35,21 +39,22 @@ function resetScore() {
   showScore()
 }
 
-const dailog = document.getElementById('dialog')
-
-function openModal() {
-  dailog.showModal()
-}
-
-function closeModal() {
-  dailog.close()
-}
-
 function playSound(sound, volume = 0.2, loop = false) {
   const audio = new Audio(sound)
   audio.volume = volume
   audio.loop = loop
   audio.play()
+  return audio
+}
+
+function toggleMusic() {
+  if (localStorage.getItem('music') === 'true') {
+    music.pause()
+    localStorage.setItem('music', 'false')
+  } else {
+    music.play()
+    localStorage.setItem('music', 'true')
+  }
 }
 
 connect()

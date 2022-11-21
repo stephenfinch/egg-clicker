@@ -57,12 +57,18 @@
     </button>
   </div>
 
-  <dialog id="dialog"><button onclick="resetScore()">Reset score</button><br /><br /><br />
-    <button onclick="closeModal()" class="right">Close</button>
+  <dialog id="dialog">
+    <button class="settings-button" onclick="resetScore()">Reset score</button>
+    <button class="settings-button" onclick="toggleMusic()" class="right">Mute</button>
+    <br />
+    <br />
+    <br />
+    <button class="settings-button" onclick="closeModal()" class="right">Close</button>
   </dialog>
   <script src="localStorageAPI.js"></script>
   <script src="main.js"></script>
   <script src="shop.js"></script>
+  <script src="modal.js"></script>
 </body>
 
 </html>

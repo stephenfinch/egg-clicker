@@ -1,6 +1,7 @@
 body {
   background: rgb(112, 109, 255);
   background: linear-gradient(360deg, rgba(112, 109, 255, 1) 0%, rgba(112, 109, 255, 1) 20%, rgba(255, 149, 51, 1) 100%);
+  touch-action: manipulation;
 }
 
 #dialog {
@@ -9,6 +10,14 @@ body {
 
 .right {
   float: right
+}
+
+.settings-button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem;
 }
 
 .material-symbols-outlined {
@@ -71,7 +80,6 @@ body {
   box-shadow: 0px 20px 0px #CE7728;
   padding: 1rem;
   transition: all 250ms ease-out;
-  touch-action: manipulation;
 
   border: 5px solid rgba(255, 255, 255, 0.5);
   border-left: none;
