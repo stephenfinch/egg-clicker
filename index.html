@@ -24,6 +24,7 @@
 </head>
 
 <body>
+  <span id="speedrun-banner" class="speedrun-banner hidden"></span>
   <div class="hero">
     <h1 id="score">0</h1>
     <span class="hero-text">Eggs Amassed</span>
@@ -55,6 +56,11 @@
       <h4>Country</h4>
       <span id="country-total" class="faded-text">0 (+0 eps)</span>
       <button id="country-buy-button" class="buy-button" onclick="buyCountry()">Buy (14M)</button>
+    </div>
+    <div class="shop-item">
+      <h4>Gold Coin</h4>
+      <span class="faded-text">(buy to win)</span>
+      <button id="coin-buy-button" class="buy-button" onclick="buyCoin()">Buy (1B)</button>
     </div>
   </div>
   <div class="buttons-container">

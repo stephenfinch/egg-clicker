@@ -57,6 +57,8 @@ function resetGame() {
   updateShop()
 
   localStorage.setItem('timer', Date.now())
+  const speedrunBanner = document.getElementById('speedrun-banner')
+  speedrunBanner.classList.add('hidden')
 }
 
 function playSound(sound, volume = 0.2, loop = false) {

@@ -4,6 +4,7 @@ const defaultShopData = {
   farm: { price: 15000, total: 0, bonus: 100 },
   island: { price: 200000, total: 0, bonus: 2500 },
   country: { price: 14000000, total: 0, bonus: 16000 },
+  coin: { price: 1000000000, total: 0, bonus: 1 },
 }
 
 function setChickenData(key, value) {

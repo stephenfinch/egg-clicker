@@ -113,7 +113,7 @@ function buyCountry() {
   if (Number(localStorage.getItem('score')) >= getShopData('country', 'price')) {
     setShopData('country', 'total', getShopData('country', 'total') + 1)
     localStorage.setItem('score', Number(localStorage.getItem('score')) - getShopData('country', 'price'))
-    setShopData('country', 'price', Math.round(getShopData('country', 'price') + getShopData('country', 'total') * 1502199))
+    setShopData('country', 'price', Math.round(getShopData('country', 'price') + getShopData('country', 'total') * 72199))
     setShopData('island', 'bonus', Math.max(getShopData('country', 'total') * 2 + defaultShopData['country'].bonus, defaultShopData['country'].bonus))
 
     const randomSound = coinSounds[Math.floor(Math.random() * coinSounds.length)]
@@ -128,6 +128,33 @@ function buyCountry() {
 function updateCountryButton() {
   document.getElementById('country-total').textContent = `${getShopData('country', 'total')} (+${formatNumber(shopItemEPS('country'))} eps)`
   document.getElementById('country-buy-button').textContent = `Buy (${formatNumber(getShopData('country', 'price'))})`
+}
+
+// Coin
+function buyCoin() {
+  if (Number(localStorage.getItem('score')) >= getShopData('coin', 'price')) {
+    localStorage.setItem('speedrunTime', Date.now())
+
+    setShopData('coin', 'total', getShopData('coin', 'total') + 1)
+    localStorage.setItem('score', Number(localStorage.getItem('score')) - getShopData('coin', 'price'))
+    setShopData('chickens', 'price', 1)
+    setShopData('barns', 'price', 10)
+    setShopData('farms', 'price', 100)
+    setShopData('island', 'price', 1000)
+    setShopData('country', 'price', 10000)
+
+    const winSound = 'https://cdn.freesound.org/previews/609/609336_2770604-lq.mp3'
+    playSound(winSound, 0.75)
+
+    const speedrunBanner = document.getElementById('speedrun-banner')
+    speedrunBanner.classList.remove('hidden')
+    speedrunBanner.textContent = `You won in: ${msToReadableTime(localStorage.getItem('speedrunTime') - localStorage.getItem('timer'))}`
+    localStorage.setItem('timer', Date.now())
+  } else {
+    playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
+  }
+
+  updateShop()
 }
 
 window.setInterval(() => {

@@ -1,3 +1,7 @@
+:root {
+  --color: 0;
+}
+
 body {
   background: rgb(112, 109, 255);
   background: linear-gradient(360deg, rgba(112, 109, 255, 1) 0%, rgba(112, 109, 255, 1) 20%, rgba(255, 149, 51, 1) 100%);
@@ -113,7 +117,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: fit-content;
+  min-width: max-content;
   gap: 6px;
 }
 
@@ -128,4 +132,17 @@ body {
 .buy-button:active {
   background: rgba(255, 255, 255, 0.15);
   box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.speedrun-banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: hsla(var(--color), 100%, 50%, 0.75);
+  text-align: center;
+  color: white;
+}
+
+.hidden {
+  display: none;
 }
