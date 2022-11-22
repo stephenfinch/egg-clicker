@@ -1,10 +1,10 @@
 const eggButton = document.getElementById('egg-button')
 const scoreDisplay = document.getElementById('score')
 const mainMusic = 'https://cdn.freesound.org/previews/659/659450_5674468-lq.mp3'
-// const mainMusic = 'https://ia801602.us.archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4?cnt=0'
+const rickRollSong = 'https://ia801602.us.archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4?cnt=0'
 
 eggButton.addEventListener('mousedown', handleClick)
-let music
+let music, rickRollAudio
 
 function connect() {
   showScore()
@@ -72,6 +72,15 @@ function toggleMusic() {
     music.play()
     localStorage.setItem('music', 'true')
   }
+  rickRollAudio.pause()
+}
+
+function rickRoll() {
+  if (rickRollAudio) {
+    rickRollAudio.pause()
+  }
+  music.pause()
+  rickRollAudio = playSound(rickRollSong, 1)
 }
 
 connect()
