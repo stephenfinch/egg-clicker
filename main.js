@@ -33,7 +33,14 @@ function handleClick(_event) {
 }
 
 function showScore() {
-  scoreDisplay.textContent = localStorage.getItem('score')
+  scoreDisplay.textContent = formatNumber(localStorage.getItem('score'))
+}
+
+function formatNumber(number) {
+  return Intl.NumberFormat('en-US', {
+    notation: 'compact',
+    maximumFractionDigits: 3,
+  }).format(number)
 }
 
 function resetGame() {

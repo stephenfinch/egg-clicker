@@ -27,8 +27,8 @@ function updateChickenButton() {
   const chickenTotalDisplay = document.getElementById('chicken-total')
   const chickenBuyButtonDisplay = document.getElementById('chicken-buy-button')
 
-  chickenTotalDisplay.textContent = `${getChickenData('total')} (+${getChickenData('bonus') * getChickenData('total')} eps)`
-  chickenBuyButtonDisplay.textContent = `Buy (${getChickenData('price')})`
+  chickenTotalDisplay.textContent = `${getChickenData('total')} (+${formatNumber(getChickenData('bonus') * getChickenData('total'))} eps)`
+  chickenBuyButtonDisplay.textContent = `Buy (${formatNumber(getChickenData('price'))})`
 }
 
 // Barns
@@ -62,8 +62,8 @@ function updateBarnButton() {
   const barnTotalDisplay = document.getElementById('barn-total')
   const barnBuyButtonDisplay = document.getElementById('barn-buy-button')
 
-  barnTotalDisplay.textContent = `${getBarnData('total')} (+${getBarnData('bonus') * getBarnData('total')} eps)`
-  barnBuyButtonDisplay.textContent = `Buy (${getBarnData('price')})`
+  barnTotalDisplay.textContent = `${getBarnData('total')} (+${formatNumber(getBarnData('bonus') * getBarnData('total'))} eps)`
+  barnBuyButtonDisplay.textContent = `Buy (${formatNumber(getBarnData('price'))})`
 }
 
 // Farms
@@ -97,8 +97,8 @@ function updateFarmButton() {
   const farmTotalDisplay = document.getElementById('farm-total')
   const farmBuyButtonDisplay = document.getElementById('farm-buy-button')
 
-  farmTotalDisplay.textContent = `${getFarmData('total')} (+${getFarmData('bonus') * getFarmData('total')} eps)`
-  farmBuyButtonDisplay.textContent = `Buy (${getFarmData('price')})`
+  farmTotalDisplay.textContent = `${getFarmData('total')} (+${formatNumber(getFarmData('bonus') * getFarmData('total'))} eps)`
+  farmBuyButtonDisplay.textContent = `Buy (${formatNumber(getFarmData('price'))})`
 }
 
 window.setInterval(() => {
@@ -112,7 +112,7 @@ function updateEggsPerSecond() {
   const eggsPerSecondTotal =
     getChickenData('bonus') * getChickenData('total') + getBarnData('bonus') * getBarnData('total') + getFarmData('bonus') * getFarmData('total')
   const eggsPerSecondDisplay = document.getElementById('eggs-per-second')
-  eggsPerSecondDisplay.textContent = `+${eggsPerSecondTotal} eps`
+  eggsPerSecondDisplay.textContent = `+${formatNumber(eggsPerSecondTotal)} eps`
 }
 
 updateChickenButton()
