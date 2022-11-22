@@ -1,3 +1,11 @@
+const defaultShopData = {
+  chicken: { price: 10, total: 0, bonus: 1 },
+  barn: { price: 1000, total: 0, bonus: 20 },
+  farm: { price: 15000, total: 0, bonus: 100 },
+  island: { price: 200000, total: 0, bonus: 2500 },
+  country: { price: 14000000, total: 0, bonus: 16000 },
+}
+
 function setChickenData(key, value) {
   const newChickenData = getChickenData()
   newChickenData[key] = value
@@ -40,4 +48,15 @@ function setIslandData(key, value) {
 function getIslandData(key) {
   const islandData = JSON.parse(localStorage.getItem('island')) || { price: 200000, total: 0, bonus: 2500 }
   return islandData[key] ?? islandData
+}
+
+function setShopData(name, key, value) {
+  const newData = getShopData(name)
+  newData[key] = value
+  localStorage.setItem(name, JSON.stringify(newData))
+}
+
+function getShopData(name, key) {
+  const data = JSON.parse(localStorage.getItem(name)) || defaultShopData[name]
+  return data[key] ?? data
 }
