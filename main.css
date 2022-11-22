@@ -3,10 +3,24 @@
 }
 
 body {
+  touch-action: manipulation;
+  background: black;
+}
+
+.container {
   background: rgb(112, 109, 255);
   background: linear-gradient(360deg, rgba(112, 109, 255, 1) 0%, rgba(112, 109, 255, 1) 20%, rgba(255, 149, 51, 1) 100%);
-  touch-action: manipulation;
+  max-width: 500px;
+  margin: 0 auto;
+  z-index: 10;
+  height: 100vh;
 }
+
+/* @media (min-width: 500px) {
+  body {
+    background: black;
+  }
+} */
 
 #dialog {
   width: 300px;
@@ -42,10 +56,15 @@ body {
 }
 
 .hero-icon {
-  width: 100%;
+  width: 500px;
   position: absolute;
   opacity: 0.25;
-  z-index: -1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .icon {
@@ -69,7 +88,7 @@ body {
 .buttons-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .side-buttons-container {

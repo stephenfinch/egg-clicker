@@ -24,72 +24,75 @@
 </head>
 
 <body>
-  <span id="speedrun-banner" class="speedrun-banner hidden"></span>
-  <div class="hero">
-    <h1 id="score">0</h1>
-    <span class="hero-text">Eggs Amassed</span>
-    <span id="eggs-per-second" class="faded-text"></span>
-    <img src="assets/egg_alt_FILL0_wght400_GRAD0_opsz48.svg" class="hero-icon" alt="broken egg">
-  </div>
-  <div id="shop-bar" class="shop-bar">
-    <div class="shop-item">
-      <h4>Chickens</h4>
-      <span id="chicken-total" class="faded-text">0 (+0 eps)</span>
-      <button id="chicken-buy-button" class="buy-button" onclick="buyChicken()">Buy (10)</button>
-    </div>
-    <div class="shop-item">
-      <h4>Barns</h4>
-      <span id="barn-total" class="faded-text">0 (+0 eps)</span>
-      <button id="barn-buy-button" class="buy-button" onclick="buyBarn()">Buy (1K)</button>
-    </div>
-    <div class="shop-item">
-      <h4>Farm</h4>
-      <span id="farm-total" class="faded-text">0 (+0 eps)</span>
-      <button id="farm-buy-button" class="buy-button" onclick="buyFarm()">Buy (15K)</button>
-    </div>
-    <div class="shop-item">
-      <h4>Island</h4>
-      <span id="island-total" class="faded-text">0 (+0 eps)</span>
-      <button id="island-buy-button" class="buy-button" onclick="buyIsland()">Buy (200K)</button>
-    </div>
-    <div class="shop-item">
-      <h4>Country</h4>
-      <span id="country-total" class="faded-text">0 (+0 eps)</span>
-      <button id="country-buy-button" class="buy-button" onclick="buyCountry()">Buy (14M)</button>
-    </div>
-    <div class="shop-item">
-      <h4>Gold Coin</h4>
-      <span class="faded-text">(buy to win)</span>
-      <button id="coin-buy-button" class="buy-button" onclick="buyCoin()">Buy (1B)</button>
-    </div>
-  </div>
-  <div class="buttons-container">
-    <div class="side-buttons-container">
-      <button class="button" onclick="openModal()">
-        <img src="assets/settings_FILL0_wght400_GRAD0_opsz48.svg" class="icon" alt="egg">
-      </button>
-      <button class="button">
-        <img src="assets/share_FILL0_wght400_GRAD0_opsz48.svg" class="icon" alt="egg">
-      </button>
-    </div>
-    <button id="egg-button" class="button egg-button">
-      <img src="assets/egg_FILL0_wght400_GRAD0_opsz48.svg" class="icon egg-icon" alt="egg">
-      <span id="egg-button-text" class="faded-text">+1 epc</span>
-    </button>
-  </div>
+  <div class="container">
 
-  <dialog id="dialog">
-    <button class="settings-button" onclick="resetGame()">Reset score</button>
-    <button class="settings-button" onclick="toggleMusic()" class="right">Mute</button>
-    <button class="settings-button" onclick="rickRoll()" class="right">(hehe)</button>
-    <br />
-    <br />
-    <a href="https://www.buymeacoffee.com/stephenfinch" target="_blank" rel="noopener" class="settings-button">Support my work</a>
-    <br />
-    <br />
-    <span id="timer">Timer: 0</span>
-    <button class="settings-button right" onclick="closeModal()">Close</button>
-  </dialog>
+    <span id="speedrun-banner" class="speedrun-banner hidden"></span>
+    <div class="hero">
+      <h1 id="score">0</h1>
+      <span class="hero-text">Eggs Amassed</span>
+      <span id="eggs-per-second" class="faded-text"></span>
+      <img src="assets/egg_alt_FILL0_wght400_GRAD0_opsz48.svg" class="hero-icon" alt="broken egg">
+    </div>
+    <div id="shop-bar" class="shop-bar">
+      <div class="shop-item">
+        <h4>Chickens</h4>
+        <span id="chicken-total" class="faded-text">0 (+0 eps)</span>
+        <button id="chicken-buy-button" class="buy-button" onclick="buyChicken()">Buy (10)</button>
+      </div>
+      <div class="shop-item">
+        <h4>Barns</h4>
+        <span id="barn-total" class="faded-text">0 (+0 eps)</span>
+        <button id="barn-buy-button" class="buy-button" onclick="buyBarn()">Buy (1K)</button>
+      </div>
+      <div class="shop-item">
+        <h4>Farm</h4>
+        <span id="farm-total" class="faded-text">0 (+0 eps)</span>
+        <button id="farm-buy-button" class="buy-button" onclick="buyFarm()">Buy (15K)</button>
+      </div>
+      <div class="shop-item">
+        <h4>Island</h4>
+        <span id="island-total" class="faded-text">0 (+0 eps)</span>
+        <button id="island-buy-button" class="buy-button" onclick="buyIsland()">Buy (200K)</button>
+      </div>
+      <div class="shop-item">
+        <h4>Country</h4>
+        <span id="country-total" class="faded-text">0 (+0 eps)</span>
+        <button id="country-buy-button" class="buy-button" onclick="buyCountry()">Buy (14M)</button>
+      </div>
+      <div class="shop-item">
+        <h4>Gold Coin</h4>
+        <span class="faded-text">(buy to win)</span>
+        <button id="coin-buy-button" class="buy-button" onclick="buyCoin()">Buy (1B)</button>
+      </div>
+    </div>
+    <div class="buttons-container">
+      <div class="side-buttons-container">
+        <button class="button" onclick="openModal()">
+          <img src="assets/settings_FILL0_wght400_GRAD0_opsz48.svg" class="icon" alt="egg">
+        </button>
+        <button class="button">
+          <img src="assets/share_FILL0_wght400_GRAD0_opsz48.svg" class="icon" alt="egg">
+        </button>
+      </div>
+      <button id="egg-button" class="button egg-button">
+        <img src="assets/egg_FILL0_wght400_GRAD0_opsz48.svg" class="icon egg-icon" alt="egg">
+        <span id="egg-button-text" class="faded-text">+1 epc</span>
+      </button>
+    </div>
+
+    <dialog id="dialog">
+      <button class="settings-button" onclick="resetGame()">Reset score</button>
+      <button class="settings-button" onclick="toggleMusic()" class="right">Mute</button>
+      <button class="settings-button" onclick="rickRoll()" class="right">(hehe)</button>
+      <br />
+      <br />
+      <a href="https://www.buymeacoffee.com/stephenfinch" target="_blank" rel="noopener" class="settings-button">Support my work</a>
+      <br />
+      <br />
+      <span id="timer">Timer: 0</span>
+      <button class="settings-button right" onclick="closeModal()">Close</button>
+    </dialog>
+  </div>
   <script src="localStorageAPI.js"></script>
   <script src="main.js"></script>
   <script src="shop.js"></script>
