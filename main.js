@@ -7,6 +7,7 @@ eggButton.addEventListener('mousedown', handleClick)
 let music, rickRollAudio
 
 function connect() {
+  if (!localStorage.getItem('timer')) localStorage.setItem('timer', Date.now())
   showScore()
   window.setTimeout(() => {
     music = playSound(mainMusic, 0.2, true)
@@ -54,6 +55,8 @@ function resetGame() {
   localStorage.removeItem('island')
   localStorage.removeItem('country')
   updateShop()
+
+  localStorage.setItem('timer', Date.now())
 }
 
 function playSound(sound, volume = 0.2, loop = false) {
