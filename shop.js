@@ -101,16 +101,55 @@ function updateFarmButton() {
   farmBuyButtonDisplay.textContent = `Buy (${formatNumber(getFarmData('price'))})`
 }
 
+// Islands
+function buyIsland() {
+  if (Number(localStorage.getItem('score')) >= getIslandData('price')) {
+    setIslandData('total', getIslandData('total') + 1)
+    localStorage.setItem('score', Number(localStorage.getItem('score')) - getIslandData('price'))
+    setIslandData('price', Math.round(getIslandData('price') + getIslandData('total') * 25021))
+    setFarmData('bonus', Math.max(getIslandData('total') * 2 + 100, 100))
+    const coinSounds = [
+      'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
+      'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
+      'https://cdn.freesound.org/previews/630/630018_12715066-lq.mp3',
+      'https://cdn.freesound.org/previews/213/213982_3635427-lq.mp3',
+    ]
+    const randomSound = coinSounds[Math.floor(Math.random() * coinSounds.length)]
+
+    playSound(randomSound, 0.5)
+    showScore()
+    updateIslandButton()
+    updateFarmButton()
+  } else {
+    playSound('https://cdn.freesound.org/previews/429/429720_7872621-lq.mp3')
+    console.log('you do not have enough eggs')
+  }
+
+  updateEggsPerSecond()
+}
+
+function updateIslandButton() {
+  const islandTotalDisplay = document.getElementById('island-total')
+  const islandBuyButtonDisplay = document.getElementById('island-buy-button')
+
+  islandTotalDisplay.textContent = `${getIslandData('total')} (+${formatNumber(getIslandData('bonus') * getIslandData('total'))} eps)`
+  islandBuyButtonDisplay.textContent = `Buy (${formatNumber(getIslandData('price'))})`
+}
+
 window.setInterval(() => {
   localStorage.setItem('score', Number(localStorage.getItem('score')) + getChickenData('bonus') * getChickenData('total'))
   localStorage.setItem('score', Number(localStorage.getItem('score')) + getBarnData('bonus') * getBarnData('total'))
   localStorage.setItem('score', Number(localStorage.getItem('score')) + getFarmData('bonus') * getFarmData('total'))
+  localStorage.setItem('score', Number(localStorage.getItem('score')) + getIslandData('bonus') * getIslandData('total'))
   showScore()
 }, 1000)
 
 function updateEggsPerSecond() {
   const eggsPerSecondTotal =
-    getChickenData('bonus') * getChickenData('total') + getBarnData('bonus') * getBarnData('total') + getFarmData('bonus') * getFarmData('total')
+    getChickenData('bonus') * getChickenData('total') +
+    getBarnData('bonus') * getBarnData('total') +
+    getFarmData('bonus') * getFarmData('total') +
+    getIslandData('bonus') * getIslandData('total')
   const eggsPerSecondDisplay = document.getElementById('eggs-per-second')
   eggsPerSecondDisplay.textContent = `+${formatNumber(eggsPerSecondTotal)} eps`
 }
@@ -118,4 +157,5 @@ function updateEggsPerSecond() {
 updateChickenButton()
 updateBarnButton()
 updateFarmButton()
+updateIslandButton()
 updateEggsPerSecond()

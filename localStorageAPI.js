@@ -30,3 +30,14 @@ function getFarmData(key) {
   const farmData = JSON.parse(localStorage.getItem('farms')) || { price: 15000, total: 0, bonus: 100 }
   return farmData[key] ?? farmData
 }
+
+function setIslandData(key, value) {
+  const newIslandData = getIslandData()
+  newIslandData[key] = value
+  localStorage.setItem('island', JSON.stringify(newIslandData))
+}
+
+function getIslandData(key) {
+  const islandData = JSON.parse(localStorage.getItem('island')) || { price: 200000, total: 0, bonus: 2500 }
+  return islandData[key] ?? islandData
+}
